@@ -25,4 +25,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DBEngine\DBEngine.fsproj" />
+  </ItemGroup>
+
 </Project>
