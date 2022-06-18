@@ -19,12 +19,14 @@ module DBEngine =
       Properties : Map<string,Object>
     }
 
-  let newNode labels : Node = 
+  type Atom = Node * Edge list
+
+  let newNode labels : Atom = 
     let Node = { Id = Guid.NewGuid() ; Labels = labels ; Properties = Map.empty }
-    Node
+    ( Node , List<Edge>.Empty )
 
   let newEdge labels left right : Edge =
-    let Edge = 
+    let edge = 
       {
         Id = Guid.NewGuid() ;
         Labels = labels ;
@@ -32,4 +34,11 @@ module DBEngine =
         RightNode = right ;
         Properties = Map.empty
       }
-    Edge
+    edge
+
+  let joinAtoms (leftAtom : Atom) (rightAtom : Atom) (labels : string list ) : Atom =
+    let (leftNode, leftEdges) = leftAtom
+    let (rightNode, rightEdges) = rightAtom
+    let join = newEdge labels leftNode rightNode
+    let leftEdges = join :: leftEdges
+    leftAtom
