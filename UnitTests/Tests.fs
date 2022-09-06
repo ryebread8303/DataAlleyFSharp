@@ -12,10 +12,10 @@ let ``Test creating a Node`` () =
     0
 
 [<Fact>]
-let ``Test creating an Edge`` () =
+let ``Test listing edges in an atom`` () =
     let bob = DBEngine.newNode ["person"]
     fst(bob).Properties.Add("name","Bob") |> ignore
     let alice = DBEngine.newNode ["person"]
     fst(alice).Properties.Add("name","Alice") |> ignore
     let friendship = DBEngine.joinAtoms bob alice ["Friendship"]
-    0
+    Assert.Equal<int>(1,(DBEngine.listEdges friendship).Length)

@@ -42,3 +42,7 @@ module DBEngine =
     let join = newEdge labels leftNode rightNode
     let leftEdges = join :: leftEdges
     leftAtom
+
+  let listEdges (atom : Atom) : Edge list =
+    let ( _ , edges) = atom
+    edges
