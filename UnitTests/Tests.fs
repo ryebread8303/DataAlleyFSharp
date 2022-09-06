@@ -4,7 +4,7 @@ open System
 open Xunit
 open DataAlley
 [<Fact>]
-let ``Test creating a Node`` () =
+let ``Creating a Node`` () =
     let labels : string List = ["Testing Node"]
     let testNode = DBEngine.newNode labels
     let Nodelabels = fst(testNode).Labels
@@ -12,7 +12,7 @@ let ``Test creating a Node`` () =
     0
 
 [<Fact>]
-let ``Test listing edges in an atom`` () =
+let ``listing edges in an atom`` () =
     let bob = DBEngine.newNode ["person"]
     fst(bob).Properties.Add("name","Bob") |> ignore
     let alice = DBEngine.newNode ["person"]
