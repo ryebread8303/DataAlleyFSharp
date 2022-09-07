@@ -17,5 +17,6 @@ let ``listing edges in an atom`` () =
     fst(bob).Properties.Add("name","Bob") |> ignore
     let alice = DBEngine.newNode ["person"]
     fst(alice).Properties.Add("name","Alice") |> ignore
-    let friendship = DBEngine.joinAtoms bob alice ["Friendship"]
-    Assert.Equal<int>(1,(DBEngine.listEdges friendship).Length)
+    let bobsFriendship = DBEngine.joinAtoms bob alice ["Friendship"] |> DBEngine.listEdges
+    Assert.Equal<int>(1,bobsFriendship.Length)
+    0
