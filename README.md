@@ -3,7 +3,7 @@ An F# version of DataAlleyDB for self-development puposes
 
 # TODO
 
-* Create Graph structure that contains all atoms
+## Planned
 * Query for nodes by labels
 * Query for nodes by properties
 * Query for edges by labels
@@ -13,3 +13,8 @@ An F# version of DataAlleyDB for self-development puposes
 * Deserialize from XML
 * Deserialize from JSON
 * Index objects by specified property values
+
+## In progress
+
+## Completed
+* Create Graph structure that contains all atoms

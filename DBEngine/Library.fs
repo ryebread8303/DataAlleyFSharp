@@ -24,6 +24,9 @@ module DBEngine =
   ///Atoms are one Node and a list of all Edges leading from that Node to other Nodes.
   type Atom = Node * Edge list
 
+  ///Graph contains all the Atoms.
+  type Graph = Atom list
+
   ///<summary>newNode creates a new Node object.</summary>
   /// <param name="labels">A list of strings to set as the labels for the Node.</param>
   /// <returns>a new Atom object</returns>
@@ -46,6 +49,9 @@ module DBEngine =
         Properties = Map.empty
       }
     edge
+
+  let newGraph (atoms: Atom list) : Graph =
+    atoms
 
   ///<summary>create a relation between Atoms by adding an Edge to the left one</summary>
   /// <param name="leftAtom">the originating Atom</param>
