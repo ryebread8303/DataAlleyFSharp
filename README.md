@@ -9,12 +9,12 @@ An F# version of DataAlleyDB for self-development puposes
 * Query for edges by labels
 * Query for edges by properties
 * Serialize to XML
-* Serialize to JSON
 * Deserialize from XML
 * Deserialize from JSON
 * Index objects by specified property values
 
 ## In progress
+* Serialize to JSON
 
 ## Completed
 * Create Graph structure that contains all atoms

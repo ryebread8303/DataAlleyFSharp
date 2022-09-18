@@ -38,3 +38,11 @@ let ``creating a new graph`` () =
     let testGraph = DBEngine.newGraph([bob;alice])
     Assert.IsType<DBEngine.Graph>(testGraph) |> ignore
     0
+
+[<Fact>]
+let ``saving a graph creates a file`` () =
+    let bob = createBob
+    let alice = createAlice
+    let testGraph = DBEngine.newGraph([bob;alice])
+    DBEngine.saveGraph testGraph "./testJson.json"
+    0

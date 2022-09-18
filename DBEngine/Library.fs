@@ -1,5 +1,7 @@
 ﻿namespace DataAlley
 open System
+open System.Text.Json
+open System.IO
 module DBEngine =
 
   ///<summary>The Node type holds data objects in the database</summary>
@@ -69,3 +71,8 @@ module DBEngine =
   let listEdges (atom : Atom) : Edge list =
     let ( _ , edges) = atom
     edges
+
+  let saveGraph (graph : Graph) (destination: string) = 
+    let stringGraph = JsonSerializer.Serialize<Graph>(graph)
+    File.WriteAllText(destination, stringGraph)
+    0
